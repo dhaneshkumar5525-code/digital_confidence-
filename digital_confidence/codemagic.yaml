@@ -1,0 +1,16 @@
+workflows:
+  android:
+    name: Build APK
+    description: Build Android APK for release
+    platform: android
+    flutter:
+      channel: stable
+    scripts:
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Build APK
+        script: |
+          flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
